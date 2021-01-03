@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+ 
+  <xs:element name="weatherdata">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="location" type="location" minOccurs="0"/>
+			<xs:element name="credit" type="xs:string" minOccurs="0"/>
+			<xs:element name="meta" type="meta" minOccurs="0"/>
+			<xs:element name="sun" type="sun" minOccurs="0"/>
+			<xs:element name="forecast" type="forecast" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+  </xs:element>
+  
+
+	<xs:complexType name="location">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="0"/>
+			<xs:element name="type" type="xs:string" minOccurs="0"/>
+			<xs:element name="country" type="xs:string" minOccurs="0"/>
+			<xs:element name="timezone" type="xs:string" minOccurs="0"/>
+			<xs:element name="location" type="location" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="altitude" type="xs:string" />
+		<xs:attribute name="latitude" type="xs:string" />
+		<xs:attribute name="longitude" type="xs:string" />
+		<xs:attribute name="geobase" type="xs:string" />
+		<xs:attribute name="geobaseid" type="xs:string" />
+	</xs:complexType>
+  
+  <xs:complexType name="meta">
+	<xs:sequence>
+			<xs:element name="lastupdate" type="xs:string"/>
+			<xs:element name="calctime" type="xs:string"/>
+			<xs:element name="nextupdate" type="xs:string"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sun">
+			<xs:attribute name="rise" type="xs:string" />
+			<xs:attribute name="set" type="xs:string"/>
+  </xs:complexType>
+  
+  <xs:complexType name="forecast">
+	<xs:sequence>
+			<xs:element name="time" type="time" minOccurs="0" maxOccurs="50"/>
+			<xs:element name="symbol" type="symbol" minOccurs="0"/>
+			<xs:element name="precipitation" type="precipitation" minOccurs="0"/>
+			<xs:element name="windDirection" type="windDirection" minOccurs="0"/>
+			<xs:element name="windSpeed" type="windSpeed" minOccurs="0"/>
+			<xs:element name="temperature" type="temperature" minOccurs="0"/>
+			<xs:element name="feels_like" type="feels_like" minOccurs="0"/>
+			<xs:element name="pressure" type="pressure" minOccurs="0"/>
+			<xs:element name="humidity" type="humidity" minOccurs="0"/>
+			<xs:element name="clouds" type="clouds" minOccurs="0"/>
+			<xs:element name="visibility" type="visibility" minOccurs="0"/>
+	</xs:sequence>
+  </xs:complexType>
+  
+
+  <xs:complexType name="time">
+			<xs:attribute name="from" type="xs:string" />
+			<xs:attribute name="to" type="xs:string" />
+  </xs:complexType>
+  
+  <xs:complexType name="symbol">
+			<xs:attribute name="number" type="xs:string" />
+			<xs:attribute name="name" type="xs:string" />
+			<xs:attribute name="var" type="xs:string" />
+  </xs:complexType>
+  
+  <xs:complexType name="precipitation">
+			<xs:attribute name="value" type="xs:string" />
+			<xs:attribute name="unit" type="xs:string" />
+			<xs:attribute name="type" type="xs:string" />
+			<xs:attribute name="probability" type="xs:string" />
+  </xs:complexType>
+  
+  <xs:complexType name="windDirection">
+			<xs:attribute name="deg" type="xs:string" />
+			<xs:attribute name="code" type="xs:string" />
+			<xs:attribute name="name" type="xs:string" />
+  </xs:complexType>
+  
+  <xs:complexType name="windSpeed">
+			<xs:attribute name="mps" type="xs:string" />
+			<xs:attribute name="unit" type="xs:string" />
+			<xs:attribute name="name" type="xs:string" />
+  </xs:complexType>
+  
+  <xs:complexType name="temperature">
+			<xs:attribute name="unit" type="xs:string" />
+			<xs:attribute name="value" type="xs:string"/>
+			<xs:attribute name="min" type="xs:string" />
+			<xs:attribute name="max" type="xs:string" />
+  </xs:complexType>
+  
+  <xs:complexType name="feels_like">
+			<xs:attribute name="unit" type="xs:string" />
+			<xs:attribute name="value" type="xs:string" />
+  </xs:complexType>
+  
+  <xs:complexType name="pressure">
+			<xs:attribute name="unit" type="xs:string" />
+			<xs:attribute name="value" type="xs:string" />
+  </xs:complexType>
+  
+  <xs:complexType name="humidity">
+			<xs:attribute name="unit" type="xs:string" />
+			<xs:attribute name="value" type="xs:string" />
+  </xs:complexType>
+  
+  <xs:complexType name="clouds">
+			<xs:attribute name="value" type="xs:string" />
+			<xs:attribute name="all" type="xs:string" />
+			<xs:attribute name="unit" type="xs:string" />
+  </xs:complexType>
+  
+  <xs:complexType name="visibility">
+			<xs:attribute name="value" type="xs:string" />
+  </xs:complexType>
+  
+  
+</xs:schema>

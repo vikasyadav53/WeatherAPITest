@@ -1,0 +1,158 @@
+{
+	"$id": "http://yourdomain.com/schemas/myschema.json",
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"type": "object",
+	"properties": {
+		"cod":{
+			"type":"string"
+		},
+		"message":{
+			"type":"number"
+		},
+		"cnt":{
+			"type":"integer",
+			"minimum":0
+		},
+		"list":{
+			"type":"array",
+			"items":{"$ref":"#/definitions/weatherdatahour"}
+		},
+		"city":{
+			"type":"object",
+			"properties":{
+				"id":{
+					"type":"integer"
+				},
+				"name": {
+					"type":"string"
+				},
+				"coord": {
+					"type":"object",
+					"properties":{
+						"lat":{
+							"type":"number"
+						},
+						"lon": {
+							"type":"number"
+						}
+					}
+				}
+			}
+		},
+		"country":{
+			"type":"string"
+		},
+		"timezone":{
+			"type":"integer"
+		},
+		"sunrise":{
+			"type":"integer"
+		},
+		"sunset":{
+			"type":"integer"
+		}
+	},
+		"definitions":{
+			"weatherdatahour":{
+				"type":"object",
+				"properties": {
+					"dt":{
+						"type":"string"
+					},
+					"main":{
+						"type":"object",
+						"properties":{
+							"temp": {
+								"type":"number"
+							},
+							"feels_like": {
+								"type":"number"
+							},
+							"temp_min": {
+								"type":"number"
+							},
+							"temp_max": {
+								"type":"number"
+							},
+							"pressure": {
+								"type":"integer"
+							},
+							"sea_level": {
+								"type":"integer"
+							},
+							"grnd_level": {
+								"type":"integer"
+							},
+							"humidity": {
+								"type":"integer"
+							},
+							"temp_kf": {
+								"type":"integer"
+							}
+						}
+					},
+					"weather":{
+						"type":"array",
+						"item":{"$ref":"#/definitions/weatherhour"}
+					},
+					"clouds":{
+						"type":"object",
+						"properties":{
+							"all": {
+								"type":"integer"
+							}
+						}
+					},
+					"wind":{
+						"type":"object",
+						"properties":{
+							"speed": {
+								"type":"number"
+							},
+							"deg": {
+								"type":"integer"
+							}
+						}
+					},
+					"visibility":{
+						"type":"integer"
+					},
+					"pop":{
+						"type":"number"
+					},
+					"sys":{
+						"type":"object",
+						"properties":{
+							"pod": {
+								"type":"string"
+							}
+						}
+					},
+					"dt_txt":{
+						"type":"string"
+					}
+					
+				}
+				
+			},
+			"weatherhour":{
+				"type":"object",
+				"properties":{
+					"id": {
+						"type":"integer"
+					},
+					"main": {
+						"type":"string"
+					},
+					"description": {
+						"type":"string"
+					},
+					"icon": {
+						"type":"string"
+					}
+				}
+			}
+		}
+		
+	
+}
